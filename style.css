@@ -150,6 +150,7 @@ img {
     100% { box-shadow: 0 0 0 0 rgba(212, 163, 115, 0); }
 }
 
+
 /* ==========================================================
    Header & Navegação (Glassmorphism)
    ========================================================== */
@@ -435,8 +436,6 @@ img {
 
 .card-img-destaque {
     flex: 1;
-    min-height: 450px;
-    background: #EADDD7; 
     background-size: cover;
     background-position: center;
 }
@@ -514,25 +513,34 @@ img {
     box-shadow: var(--shadow-md);
 }
 
-.team-photo {
-    height: 300px;
-    background-color: #e6d5c3;
-    background-size: cover;
-    background-position: center top;
-}
 
-.team-info { padding: 30px; }
-.team-info h3 {  font-size: 1.5rem; margin-bottom: 5px; }
+
+.team-info { 
+    background: #727374;
+    padding: 30px;
+}
+.team-info h3 { font-size: 1.5rem; margin-bottom: 5px; margin-top: 10px; }
+.team-name {
+    color: var(--primary-soft)
+}
 
 .team-info .role {
     display: block;
     color: var(--primary-color);
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 25px;
     font-size: 0.9rem;
 }
 
+.role {
+    background: var(--primary-soft);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
 .team-info p {
+    background: #000;
     color: var(--text-light);
     font-size: 0.95rem;
 }
@@ -542,7 +550,7 @@ img {
    ========================================================== */
 .timeline {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     position: relative;
 }
