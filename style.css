@@ -258,7 +258,8 @@ img {
     display: flex;
     align-items: center;
     position: relative;
-    background: linear-gradient(135deg, rgba(226, 194, 179, 0.2) 0%, rgba(255, 255, 255, 1) 100%);
+    background: #727374;
+    color: #FFFFFF;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -267,7 +268,7 @@ img {
 .hero-overlay {
     position: absolute;
     inset: 0; /* Substitui top:0, left:0, width:100%, height:100% */
-    background: rgba(255, 255, 255, 0.4);
+    background:  #727374;;
     z-index: 1;
 }
 
@@ -280,6 +281,8 @@ img {
 }
 
 .hero-content h1 {
+    
+    color: #FFFFFF;
     font-size: 3.5rem;
     line-height: 1.2;
     margin-bottom: 20px;
@@ -287,7 +290,7 @@ img {
 
 .hero-content p {
     font-size: 1.2rem;
-    color: var(--text-light);
+    color: #FFFFFF;
     margin-bottom: 40px;
     max-width: 600px;
     margin-left: auto;
@@ -483,6 +486,12 @@ img {
 /* ==========================================================
    Equipe
    ========================================================== */
+
+.equipe section-padding bg-light {
+    background: #727374;
+    color: #FFFFFF;
+}
+
 .equipe-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -513,7 +522,7 @@ img {
 }
 
 .team-info { padding: 30px; }
-.team-info h3 { font-size: 1.5rem; margin-bottom: 5px; }
+.team-info h3 {  font-size: 1.5rem; margin-bottom: 5px; }
 
 .team-info .role {
     display: block;
