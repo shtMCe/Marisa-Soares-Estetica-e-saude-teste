@@ -3,58 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marisa Soares Estética e Saúde | Clínica de Alto Padrão</title>
-    <meta name="description" content="Especialistas em Depilação a Laser, Spa dos Pés, Limpeza de Pele e Massagens. Cuidando da sua beleza e autoestima com tecnologia e segurança.">
-    
+    <title>Marisa Soares Estética e Saúde | Clínica de Alto Padrão em Guimarânia - MG</title>
+    <meta name="description" content="Especialistas em depilação a laser, tratamentos faciais e corporais em Guimarânia (MG). Atendimento personalizado, tecnologia avançada e cuidado humanizado desde 2019.">
+    <link rel="icon" type="image/png" href="images/logo.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="header" id="header">
         <div class="container nav-container">
-            <a href="#" class="logo">
-                Marisa Soares Estética e Saúde
+            <a href="#hero" class="logo">
+                <span class="logo-main">Marisa Soares</span>
+                <span class="logo-sub">Estética &amp; Saúde</span>
             </a>
-            
+
             <nav class="nav-menu" id="nav-menu">
-                <ul class="nav-links">
+                <ul class="nav-links" id="nav-links">
                     <li><a href="#hero">Início</a></li>
                     <li><a href="#sobre">Sobre Nós</a></li>
                     <li><a href="#servicos">Tratamentos</a></li>
                     <li><a href="#equipe">Nossa Equipe</a></li>
                     <li><a href="#depoimentos">Depoimentos</a></li>
                 </ul>
-                <a href="https://wa.me/5534998182414" target="_blank" class="btn-nav">Agendar Atendimento</a>
+                <a href="https://wa.me/5534998182414" target="_blank" rel="noopener" class="btn-nav">Agendar Atendimento</a>
             </nav>
 
-            <div class="menu-toggle" id="menu-toggle">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </div>
     </header>
 
     <main>
         <section class="hero" id="hero">
             <div class="hero-overlay"></div>
-            <div class="container hero-content fade-in">
-                <h1>Realce sua beleza com tecnologia, cuidado e resultados que elevam sua autoestima.</h1>
-                <p>Desde 2019 oferecendo tratamentos de alto padrão focados na sua saúde, bem-estar e confiança. Sinta-se na sua melhor versão.</p>
-                <a href="https://wa.me/5534998182414" target="_blank" class="btn btn-primary pulse-anim">Agendar Atendimento</a>
+            <div class="container hero-content">
+                <span class="hero-eyebrow fade-in">Guimarânia · MG</span>
+                <h1 class="fade-in">Realce sua beleza com tecnologia, cuidado e resultados que elevam sua autoestima.</h1>
+                <p class="fade-in">Desde 2019 oferecendo tratamentos de alto padrão focados na sua saúde, bem-estar e confiança. Sinta-se na sua melhor versão.</p>
+                <div class="hero-cta fade-in">
+                    <a href="https://wa.me/5534998182414" target="_blank" rel="noopener" class="btn btn-primary pulse-anim">
+                        <i class="ph ph-whatsapp-logo" aria-hidden="true"></i> Agendar Atendimento
+                    </a>
+                    <a href="#servicos" class="hero-link">Ver tratamentos <i class="ph ph-arrow-down" aria-hidden="true"></i></a>
+                </div>
             </div>
+            <div class="hero-scroll-cue" aria-hidden="true"><span></span></div>
         </section>
 
         <section class="sobre section-padding" id="sobre">
             <div class="container sobre-container">
                 <div class="sobre-img fade-in">
-                    <div class="img-placeholder">
-                        <img src="imagens/Imagem estética.jpg" alt="Imagem da Clínica Marisa Soares Estética e Saúde">
-                    </div>
+                    <img src="images/Imagem estética.jpg" alt="Marisa Soares, fundadora da clínica Marisa Soares Estética e Saúde">
+                    <div class="sobre-img-tag">Desde 2019</div>
                 </div>
                 <div class="sobre-text fade-in">
                     <span class="section-subtitle">Nossa Essência</span>
@@ -63,7 +72,7 @@
                     <p>Acreditamos em um atendimento humanizado, onde cada cliente é única. Nosso compromisso é entregar qualidade e segurança incomparáveis, proporcionando resultados que transformam e renovam sua confiança de dentro para fora.</p>
                     <div class="sobre-stats">
                         <div class="stat">
-                            <h3>+8</h3>
+                            <h3>+7</h3>
                             <p>Anos de Experiência</p>
                         </div>
                         <div class="stat">
@@ -82,64 +91,61 @@
                     <h2 class="section-title">Procedimentos de Excelência</h2>
                 </div>
 
-                <div class="servicos-grid">
+                <div class="servicos-grid stagger-grid">
                     <div class="card card-destaque fade-in">
-    <div class="card-badge">Serviço Premium</div>
-    
-    <div class="card-content">
-        <h3>Depilação a Laser</h3>
-        <p class="destaque-text">Liberdade para sentir-se bem em sua própria pele</p>
-        <ul class="beneficios-list">
-            <li>✓ Redução definitiva dos pelos</li>
-            <li>✓ Procedimento seguro e indolor</li>
-            <li>✓ Melhora significativa da autoestima</li>
-            <li>✓ Economia de tempo e praticidade</li>
-            <li>✓ Tecnologia de ponta adaptada à cada fototipo de pele</li>
-        </ul>
-        <a href="https://wa.me/5534998182414" target="_blank" class="btn btn-primary">Agendar Sessão</a>
-    </div>
-
-    <div class="card-img-destaque">
-        <img src="imagens/fazendo depilação.jpeg" class="imagem-depilacao-laser" alt="Procedimento de depilação a laser">
-    </div>
-</div>
+                        <div class="card-badge">Serviço Premium</div>
+                        <div class="card-content">
+                            <h3>Depilação a Laser</h3>
+                            <p class="destaque-text">Liberdade para sentir-se bem em sua própria pele.</p>
+                            <ul class="beneficios-list">
+                                <li><i class="ph ph-check-circle" aria-hidden="true"></i> Redução definitiva dos pelos</li>
+                                <li><i class="ph ph-check-circle" aria-hidden="true"></i> Procedimento seguro e indolor</li>
+                                <li><i class="ph ph-check-circle" aria-hidden="true"></i> Melhora significativa da autoestima</li>
+                                <li><i class="ph ph-check-circle" aria-hidden="true"></i> Economia de tempo e praticidade</li>
+                                <li><i class="ph ph-check-circle" aria-hidden="true"></i> Tecnologia adaptada a cada fototipo de pele</li>
+                            </ul>
+                            <a href="https://wa.me/5534998182414" target="_blank" rel="noopener" class="btn btn-primary">Agendar Sessão</a>
+                        </div>
+                        <div class="card-img-destaque">
+                            <img src="images/fazendo depilação.jpeg" alt="Procedimento de depilação a laser em andamento na clínica">
+                        </div>
+                    </div>
 
                     <div class="card fade-in">
-                        <div class="card-icon"></div>
+                        <div class="card-icon"><i class="ph-thin ph-drop" aria-hidden="true"></i></div>
                         <h3>Limpeza de Pele</h3>
                         <p>Renovação celular profunda. Remove impurezas, previne o envelhecimento precoce e devolve o viço natural e a hidratação que sua pele merece.</p>
                     </div>
 
                     <div class="card fade-in">
-                        <div class="card-icon"></div>
+                        <div class="card-icon"><i class="ph-thin ph-footprints" aria-hidden="true"></i></div>
                         <h3>Spa dos Pés</h3>
                         <p>Relaxamento e cuidado intensivo. Tratamento focado na hidratação profunda, esfoliação e alívio das tensões diárias, promovendo maciez extrema.</p>
                     </div>
 
                     <div class="card fade-in">
-                        <div class="card-icon"></div>
+                        <div class="card-icon"><i class="ph-thin ph-hand-heart" aria-hidden="true"></i></div>
                         <h3>Massagens</h3>
                         <p>Desconecte-se do estresse. Nossas massagens terapêuticas e relaxantes equilibram corpo e mente, melhorando a circulação e aliviando dores.</p>
                     </div>
 
                     <div class="card fade-in">
-                        <div class="card-icon"></div>
+                        <div class="card-icon"><i class="ph-thin ph-syringe" aria-hidden="true"></i></div>
                         <h3>Botox</h3>
                         <p>Tratamento estético não invasivo para reduzir rugas e linhas de expressão, proporcionando um aspecto mais jovem e renovado.</p>
                     </div>
-                    
+
                     <div class="card fade-in">
-                        <div class="card-icon"></div>
+                        <div class="card-icon"><i class="ph-thin ph-sun" aria-hidden="true"></i></div>
                         <h3>CO2 Laser</h3>
-                        <p>Tratamento estético avançado para rejuvenescimento da pele, estimulando a produção de colágeno e melhorando a textura e elasticidade da pele.</p>
+                        <p>Tratamento estético avançado para rejuvenescimento da pele, estimulando a produção de colágeno e melhorando a textura e elasticidade.</p>
                     </div>
 
                     <div class="card fade-in">
-                        <div class="card-icon"></div>
-                        <h3>Lavieen laser</h3>
+                        <div class="card-icon"><i class="ph-thin ph-sparkle" aria-hidden="true"></i></div>
+                        <h3>Lavieen Laser</h3>
                         <p>Tratamento estético inovador para rejuvenescimento da pele, utilizando tecnologia avançada para melhorar a aparência e saúde da pele.</p>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -147,30 +153,37 @@
         <section class="diferenciais section-padding" id="diferenciais">
             <div class="container">
                 <div class="section-header text-center fade-in">
+                    <span class="section-subtitle">Nossos Diferenciais</span>
                     <h2 class="section-title">Por que escolher nossa clínica?</h2>
                 </div>
-                <div class="diferenciais-grid">
+                <div class="diferenciais-grid stagger-grid">
                     <div class="diferencial-item fade-in">
+                        <div class="icon-circle"><i class="ph-thin ph-user-focus" aria-hidden="true"></i></div>
                         <h4>Atendimento Personalizado</h4>
                         <p>Protocolos criados sob medida para as suas necessidades exclusivas.</p>
                     </div>
                     <div class="diferencial-item fade-in">
+                        <div class="icon-circle"><i class="ph-thin ph-cpu" aria-hidden="true"></i></div>
                         <h4>Equipamentos Modernos</h4>
                         <p>Utilizamos as tecnologias mais seguras e eficazes do mercado estético.</p>
                     </div>
                     <div class="diferencial-item fade-in">
+                        <div class="icon-circle"><i class="ph-thin ph-armchair" aria-hidden="true"></i></div>
                         <h4>Ambiente Confortável</h4>
                         <p>Um espaço projetado para transmitir paz, luxo e acolhimento.</p>
                     </div>
                     <div class="diferencial-item fade-in">
+                        <div class="icon-circle"><i class="ph-thin ph-shield-check" aria-hidden="true"></i></div>
                         <h4>Segurança e Higiene</h4>
                         <p>Rigorosos padrões de biossegurança em todos os procedimentos.</p>
                     </div>
                     <div class="diferencial-item fade-in">
+                        <div class="icon-circle"><i class="ph-thin ph-certificate" aria-hidden="true"></i></div>
                         <h4>Profissionais Qualificados</h4>
                         <p>Equipe em constante atualização técnica e científica.</p>
                     </div>
                     <div class="diferencial-item fade-in">
+                        <div class="icon-circle"><i class="ph-thin ph-heart" aria-hidden="true"></i></div>
                         <h4>Atendimento Humanizado</h4>
                         <p>Cuidamos de você com empatia, respeito e dedicação total.</p>
                     </div>
@@ -178,44 +191,22 @@
             </div>
         </section>
 
-        <section class="equipe section-padding bg-light" id="equipe">
+        <section class="como-funciona section-padding bg-light" id="como-funciona">
             <div class="container">
                 <div class="section-header text-center fade-in">
-                    <span class="section-subtitle">Quem cuida de você</span>
-                    <h2 class="section-title">Nossa Equipe</h2>
-                </div>
-                <div class="equipe-grid">
-                    <div class="team-card fade-in">
-                        <div class="team-photo photo-marisa"></div>
-                        <div class="team-info">
-                            <img class="team-photo" src="imagens/foto marisa.jpg" alt="Foto de Marisa Soares">
-                            <h3 class="team-name">Marisa Soares</h3>
-                            <span class="role"><i>Fundadora, Biomédica, Técnica em Enfermagem e Especialista em Laser</i></span>
-                        </div>
-                    </div>
-
-                    <div class="team-card fade-in">
-                        <div class="team-photo photo-maria"></div>
-                        <div class="team-info">
-                            <img src="imagens/foto malu.jpg" alt="Foto de Maria Luísa">
-                            <h3>Maria Luísa</h3>
-                            <span class="role">Atendimento, Suporte e Aplicadora</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="como-funciona section-padding" id="como-funciona">
-            <div class="container">
-                <div class="section-header text-center fade-in">
+                    <span class="section-subtitle">Passo a Passo</span>
                     <h2 class="section-title">A Jornada do seu Cuidado</h2>
                 </div>
-                <div class="timeline">
+                <div class="timeline stagger-grid">
                     <div class="timeline-step fade-in">
                         <div class="step-number">1</div>
                         <h4>Agendamento</h4>
                         <p>Entre em contato de forma rápida e prática pelo nosso WhatsApp.</p>
+                    </div>
+                    <div class="timeline-step fade-in">
+                        <div class="step-number">2</div>
+                        <h4>Avaliação</h4>
+                        <p>Analisamos sua pele e seus objetivos para montar um protocolo sob medida.</p>
                     </div>
                     <div class="timeline-step fade-in">
                         <div class="step-number">3</div>
@@ -231,36 +222,61 @@
             </div>
         </section>
 
+        <section class="equipe section-padding" id="equipe">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <span class="section-subtitle">Quem Cuida de Você</span>
+                    <h2 class="section-title">Nossa Equipe</h2>
+                </div>
+                <div class="equipe-grid stagger-grid">
+                    <div class="team-card fade-in">
+                        <div class="team-photo">
+                            <img src="images/foto marisa.jpg" alt="Foto de Marisa Soares">
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Marisa Soares</h3>
+                            <span class="role">Fundadora &amp; Especialista em Laser</span>
+                            <p>Biomédica, Técnica em Enfermagem e Especialista em Laser.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card fade-in">
+                        <div class="team-photo">
+                            <img src="images/foto malu.jpg" alt="Foto de Maria Luísa">
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Maria Luísa</h3>
+                            <span class="role">Atendimento &amp; Aplicadora</span>
+                            <p>Suporte completo antes, durante e depois de cada procedimento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="cidades-depoimentos section-padding bg-light" id="depoimentos">
             <div class="container">
                 <div class="duo-layout">
                     <div class="cidades-box fade-in">
-                        <h2 class="section-title text-left">Onde estamos presentes</h2>
+                        <span class="section-subtitle">Onde Atendemos</span>
+                        <h2 class="section-title text-left">Presentes na sua região</h2>
                         <p>Levamos saúde, beleza e bem-estar para diversas clientes da região. Confira nossas cidades de atendimento:</p>
                         <div class="tags-container">
-                            <span class="tag-cidade"> Araguari - MG</span>
-                            <span class="tag-cidade"> Patrocínio - MG</span>
-                            <span class="tag-cidade"> Guimarânia - MG</span>
-                            <span class="tag-cidade"> Patos de Minas - MG</span>
+                            <span class="tag-cidade"><i class="ph ph-map-pin" aria-hidden="true"></i> Araguari - MG</span>
+                            <span class="tag-cidade"><i class="ph ph-map-pin" aria-hidden="true"></i> Patrocínio - MG</span>
+                            <span class="tag-cidade"><i class="ph ph-map-pin" aria-hidden="true"></i> Guimarânia - MG</span>
+                            <span class="tag-cidade"><i class="ph ph-map-pin" aria-hidden="true"></i> Patos de Minas - MG</span>
                         </div>
                     </div>
 
                     <div class="depoimentos-box fade-in">
+                        <span class="section-subtitle">Depoimentos</span>
                         <h2 class="section-title text-left">O que dizem nossas clientes</h2>
-                        <div class="depoimento-card">
-                            <div class="stars">★★★★★</div>
+                        <div class="depoimento-card depoimento-destaque">
+                            <i class="ph ph-quotes quote-icon" aria-hidden="true"></i>
+                            <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
                             <p>"Experiência excelente do início ao fim. Atendimento acolhedor, profissionais muito bem capacitadas e resultados que superam as expectativas. Sem dúvida, uma clínica que une qualidade, confiança e excelência."</p>
-                            <span>- Phablo Oliveira</span>
-                        </div>
-                        <div class="depoimento-card">
-                            <div class="stars">★★★★★</div>
-                            <p>"Depoimento 2"</p>
-                            <span>- Cliente 2</span>
-                        </div>
-                        <div class="depoimento-card">
-                            <div class="stars">★★★★★</div>
-                            <p>"Depoimento 3"</p>
-                            <span>- Cliente 3</span>
+                            <span>— Phablo Oliveira</span>
                         </div>
                     </div>
                 </div>
@@ -271,8 +287,9 @@
             <div class="container text-center">
                 <h2>Pronta para viver sua melhor versão?</h2>
                 <p>Agende seu horário agora mesmo e sinta a diferença que a tecnologia e o cuidado humanizado podem fazer por você.</p>
-                <br>
-                <a href="https://wa.me/5534998182414" target="_blank" class="btn btn-primary btn-large pulse-anim">Falar com Atendimento no WhatsApp</a>
+                <a href="https://wa.me/5534998182414" target="_blank" rel="noopener" class="btn btn-primary btn-large pulse-anim">
+                    <i class="ph ph-whatsapp-logo" aria-hidden="true"></i> Falar com Atendimento no WhatsApp
+                </a>
             </div>
         </section>
     </main>
@@ -280,14 +297,15 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-brand">
-                <h3>Marisa Soares Estética e Saúde<span>.</span></h3>
+                <img src="images/logo.png" alt="Logo Marisa Soares Estética e Saúde" class="footer-logo">
+                <h3>Marisa Soares Estética e Saúde</h3>
                 <p>Estética avançada, saúde e bem-estar. Elevando sua autoestima com cuidado e tecnologia desde 2019.</p>
             </div>
             <div class="footer-contact">
                 <h4>Contato</h4>
-                <p> WhatsApp: <a href="https://wa.me/5534998182414" target="_blank">(34) 99818-2414</a></p>
-                <p> Sede principal se encontra em: Praça Pedro Guimarães, número 3, segundo andar - Guimarânia (MG).</p>
-                <p> Atendimento mediante agendamento.</p>
+                <p><i class="ph ph-whatsapp-logo" aria-hidden="true"></i> <a href="https://wa.me/5534998182414" target="_blank" rel="noopener">(34) 99818-2414</a></p>
+                <p><i class="ph ph-map-pin" aria-hidden="true"></i> Praça Pedro Guimarães, nº 3, 2º andar — Guimarânia (MG)</p>
+                <p><i class="ph ph-calendar-check" aria-hidden="true"></i> Atendimento mediante agendamento</p>
             </div>
             <div class="footer-links">
                 <h4>Links Rápidos</h4>
@@ -306,11 +324,13 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/5534998182414" target="_blank" class="fab-whatsapp" aria-label="WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.487-1.761-1.66-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    <a href="https://wa.me/5534998182414" target="_blank" rel="noopener" class="fab-whatsapp" aria-label="Falar no WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i>
     </a>
 
-    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">↑</button>
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="ph ph-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>

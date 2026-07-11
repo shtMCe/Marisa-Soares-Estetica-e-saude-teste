@@ -4,77 +4,94 @@ document.addEventListener('DOMContentLoaded', () => {
        1. Menu Mobile (Hambúrguer)
        ========================================================== */
     const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const navLinks = document.querySelector('.nav-links');
+    const header = document.getElementById('header');
 
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        // Transforma o hambúrguer num 'X'
-        menuToggle.classList.toggle('is-active'); 
+    function closeMenu() {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('is-active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Abrir menu');
+    }
+
+    function toggleMenu() {
+        const isOpen = navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('is-active', isOpen);
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // Fecha o menu ao clicar num link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', closeMenu);
     });
 
-    // Fecha o menu ao clicar em um link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            menuToggle.classList.remove('is-active');
-        });
+    // Fecha o menu com a tecla Esc
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
     });
 
     /* ==========================================================
-       2. Header Glassmorphism ao rolar a página
+       2. Efeito de vidro (glassmorphism) no header ao rolar
        ========================================================== */
-    const header = document.getElementById('header');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+    function updateHeaderState() {
+        if (window.scrollY > 40) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
+    }
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+    updateHeaderState();
 
     /* ==========================================================
-       3. Animações Espetaculares de Scroll (Intersection Observer)
+       3. Animações de Scroll com efeito cascata (stagger)
        ========================================================== */
-    const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+    // Para cada grid marcado como "stagger-grid", aplica um atraso
+    // crescente aos filhos para que surjam em cascata.
+    document.querySelectorAll('.stagger-grid').forEach(grid => {
+        const children = grid.querySelectorAll('.fade-in');
+        children.forEach((child, index) => {
+            child.style.transitionDelay = `${Math.min(index * 0.12, 0.6)}s`;
+        });
+    });
 
-    const revealOptions = {
-        threshold: 0.15, // Ativa a animação quando 15% do elemento estiver na tela
-        rootMargin: "0px 0px -50px 0px"
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
     };
 
-    const scrollObserver = new IntersectionObserver(function(entries, observer) {
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target); // Anima apenas uma vez para não ficar repetitivo
-            }
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
         });
-    }, revealOptions);
+    }, appearOptions);
 
-    revealElements.forEach(element => {
-        scrollObserver.observe(element);
-    });
+    fadeElements.forEach(element => appearOnScroll.observe(element));
 
     /* ==========================================================
        4. Botão "Voltar ao Topo"
        ========================================================== */
     const backToTopButton = document.getElementById('backToTop');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
+    function updateBackToTop() {
+        if (window.scrollY > 400) {
             backToTopButton.classList.add('show');
         } else {
             backToTopButton.classList.remove('show');
         }
-    });
+    }
+    window.addEventListener('scroll', updateBackToTop, { passive: true });
+    updateBackToTop();
 
     backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
 });
