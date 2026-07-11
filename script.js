@@ -4,25 +4,28 @@ document.addEventListener('DOMContentLoaded', () => {
        1. Menu Mobile (Hambúrguer)
        ========================================================== */
     const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const header = document.getElementById('header');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-links a');
 
     menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        // Animação do ícone hambúrguer (transformando em X - opcional visualmente)
+        navMenu.classList.toggle('active');
+        // Transforma o hambúrguer num 'X'
         menuToggle.classList.toggle('is-active'); 
     });
 
-    // Fechar menu ao clicar num link
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    // Fecha o menu ao clicar em um link
+    navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('is-active');
         });
     });
 
     /* ==========================================================
-       2. Efeito de Sombra no Header ao rolar a página
+       2. Header Glassmorphism ao rolar a página
        ========================================================== */
+    const header = document.getElementById('header');
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -32,28 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================
-       3. Animações de Scroll (Intersection Observer API)
+       3. Animações Espetaculares de Scroll (Intersection Observer)
        ========================================================== */
-    const fadeElements = document.querySelectorAll('.fade-in');
+    const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
 
-    const appearOptions = {
-        threshold: 0.15, // Aciona quando 15% do elemento estiver visível
+    const revealOptions = {
+        threshold: 0.15, // Ativa a animação quando 15% do elemento estiver na tela
         rootMargin: "0px 0px -50px 0px"
     };
 
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    const scrollObserver = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Para a animação ocorrer apenas uma vez
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Anima apenas uma vez para não ficar repetitivo
             }
         });
-    }, appearOptions);
+    }, revealOptions);
 
-    fadeElements.forEach(element => {
-        appearOnScroll.observe(element);
+    revealElements.forEach(element => {
+        scrollObserver.observe(element);
     });
 
     /* ==========================================================
@@ -62,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopButton = document.getElementById('backToTop');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) {
+        if (window.scrollY > 500) {
             backToTopButton.classList.add('show');
         } else {
             backToTopButton.classList.remove('show');

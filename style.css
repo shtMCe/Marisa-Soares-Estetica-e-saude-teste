@@ -1,39 +1,26 @@
-:root {
-    /* --- CORES PRINCIPAIS --- */
-    --primary-color: #000000; 
-    --primary-dark: #222222;  
-    --primary-soft: #e7cece; /* Tom rosa/nude para botões e fundos */
-    --secondary-color: #727374; 
+/* ==========================================================
+   VARIÁVEIS DE COR E TIPOGRAFIA (Design de Luxo)
+   ========================================================== */
+   :root {
+    --primary: #e7cece; /* Nude/Rosê - Destaques */
+    --text-main: #000000; /* Preto - Títulos e Contraste */
+    --text-secondary: #727374; /* Cinza médio - Textos */
+    --bg-main: #ffffff; /* Fundo principal */
+    --bg-light: #fafafa; /* Fundo secundário (off-white) */
     
-    /* --- DESTAQUES E SUTILEZAS --- */
-    --accent-color: #DDA7A5; 
-    --accent-light: #F4EBEB; 
-    --whatsapp-color: #25D366;
-    
-    /* --- FUNDOS E TEXTOS --- */
-    --bg-color: #ffffff; 
-    --bg-light: #F8F8F8; 
-    --text-dark: #000000; 
-    --text-light: #727374; 
-    --white: #ffffff;
-    
-    /* --- TIPOGRAFIA E ESTRUTURA --- */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Montserrat', sans-serif;
     
-    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08); 
-    
-    --radius-md: 8px; /* Adicionado um valor leve caso queira cantos sutilmente arredondados, ou mantenha 0px */
-    --radius-lg: 16px; 
-    
-    --transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+    --transition: all 0.3s ease;
 }
 
 /* ==========================================================
-   Reset & Base
+   RESET BÁSICO
    ========================================================== */
-*, *::before, *::after {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -41,37 +28,30 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 body {
     font-family: var(--font-body);
-    background-color: var(--bg-color);
-    color: var(--text-dark);
+    color: var(--text-secondary);
+    background-color: var(--bg-main);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, .logo {
     font-family: var(--font-heading);
+    color: var(--text-main);
     font-weight: 600;
-    color: var(--text-dark);
 }
 
 a {
     text-decoration: none;
     color: inherit;
-    transition: color var(--transition), background-color var(--transition);
+    transition: var(--transition);
 }
 
 ul {
     list-style: none;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
 }
 
 .container {
@@ -81,78 +61,78 @@ img {
     padding: 0 20px;
 }
 
-.section-padding { padding: 100px 0; }
-.bg-light { background-color: var(--bg-light); }
-.text-center { text-align: center; }
-.text-left { text-align: left; }
+.section-padding {
+    padding: 100px 0;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.text-center {
+    text-align: center;
+}
 
 /* ==========================================================
-   Tipografia
+   TIPOGRAFIA & TÍTULOS
    ========================================================== */
 .section-subtitle {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--primary-color);
-    font-weight: 600;
+    color: var(--text-secondary);
     margin-bottom: 10px;
 }
 
 .section-title {
     font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: var(--text-dark);
-}
-
-.section-header {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    line-height: 1.2;
 }
 
 /* ==========================================================
-   Botões
+   BOTÕES (Microinterações)
    ========================================================== */
 .btn {
-    display: inline-block;
-    padding: 14px 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 30px;
     border-radius: 50px;
-    font-family: inherit;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
-    transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+    transition: var(--transition);
     border: none;
 }
 
 .btn-primary {
-    background-color: var(--primary-soft);
-    color: var(--text-dark);
-    box-shadow: var(--shadow-md);
+    background-color: var(--text-main);
+    color: var(--primary);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(212, 163, 115, 0.25);
+    background-color: var(--primary);
+    color: var(--text-main);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(231, 206, 206, 0.4);
 }
 
-.btn-large {
-    padding: 18px 45px;
-    font-size: 1.1rem;
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--text-main);
+    color: var(--text-main);
 }
 
-/* Animação de pulsar */
-.pulse-anim {
-    animation: pulse 2s infinite;
+.btn-outline:hover {
+    background-color: var(--text-main);
+    color: var(--primary);
 }
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(212, 163, 115, 0.4); }
-    70% { box-shadow: 0 0 0 15px rgba(212, 163, 115, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(212, 163, 115, 0); }
-}
-
 
 /* ==========================================================
-   Header & Navegação (Glassmorphism)
+   HEADER & NAVEGAÇÃO (Glassmorphism)
    ========================================================== */
 .header {
     position: fixed;
@@ -160,17 +140,17 @@ img {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(243, 221, 221, 0.85); /* rgba no lugar do hex sólido para o blur funcionar melhor */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    transition: padding var(--transition), box-shadow var(--transition);
     padding: 20px 0;
+    transition: var(--transition);
+    background: transparent;
 }
 
 .header.scrolled {
-    padding: 10px 0;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    padding: 15px 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px); /* Efeito Vidro */
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
 }
 
 .nav-container {
@@ -180,61 +160,47 @@ img {
 }
 
 .logo {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--text-dark);
+    font-size: 1.5rem;
+    letter-spacing: 1px;
 }
 
 .logo span {
-    color: var(--primary-color);
+    color: var(--primary);
 }
 
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 40px;
 }
 
 .nav-links {
     display: flex;
-    gap: 25px;
+    gap: 30px;
 }
 
 .nav-links a {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    color: var(--text-dark);
-    position: relative;
+    color: var(--text-main);
 }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: width var(--transition);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+.nav-links a:hover {
+    color: var(--text-secondary);
 }
 
 .btn-nav {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    background-color: var(--primary);
+    color: var(--text-main);
     padding: 10px 24px;
     border-radius: 50px;
     font-weight: 500;
-    background: transparent;
+    font-size: 0.9rem;
 }
 
 .btn-nav:hover {
-    background: var(--primary-color);
-    color: var(--white);
+    background-color: var(--text-main);
+    color: var(--bg-main);
 }
 
 .menu-toggle {
@@ -247,108 +213,88 @@ img {
 .menu-toggle .bar {
     width: 25px;
     height: 2px;
-    background-color: var(--text-dark);
-    transition: 0.3s;
+    background-color: var(--text-main);
+    transition: var(--transition);
 }
 
 /* ==========================================================
-   Hero Section
+   HERO SECTION
    ========================================================== */
 .hero {
+    position: relative;
     height: 100vh;
+    min-height: 600px;
     display: flex;
     align-items: center;
-    position: relative;
-    background: #727374;
-    color: #FFFFFF;
+    background-image: url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Parallax sutil */
 }
 
 .hero-overlay {
     position: absolute;
-    inset: 0; /* Substitui top:0, left:0, width:100%, height:100% */
-    background:  #727374;;
-    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 100%);
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
-    max-width: 800px;
-    text-align: center;
-    margin: 0 auto;
+    z-index: 1;
+    max-width: 650px;
 }
 
 .hero-content h1 {
-    
-    color: #FFFFFF;
     font-size: 3.5rem;
-    line-height: 1.2;
+    line-height: 1.1;
     margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    color: #FFFFFF;
+    font-size: 1.1rem;
     margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* ==========================================================
-   Sobre a Empresa
+   SOBRE NÓS
    ========================================================== */
 .sobre-container {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 60px;
-}
-
-.sobre-img, .sobre-text {
-    flex: 1;
-}
-
-.img-placeholder {
-    width: 100%;
-    height: 500px;
-    background: linear-gradient(to right bottom, #EADDD7, #ffffff);
-    border-radius: var(--radius-lg);
-    display: flex;
     align-items: center;
-    justify-content: center;
-    color: var(--text-light);
-    box-shadow: var(--shadow-md);
 }
 
-.sobre-text p {
-    color: var(--text-light);
-    margin-bottom: 20px;
-    font-size: 1.05rem;
+.sobre-img img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
 }
 
 .sobre-stats {
     display: flex;
     gap: 40px;
-    margin-top: 30px;
+    margin-top: 40px;
     padding-top: 30px;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid var(--primary);
 }
 
 .stat h3 {
     font-size: 2rem;
-    color: var(--primary-color);
+    color: var(--text-main);
 }
 
 .stat p {
-    font-size: 0.9rem;
-    margin-bottom: 0;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* ==========================================================
-   Serviços
+   TRATAMENTOS (Cards Premium)
    ========================================================== */
 .servicos-grid {
     display: grid;
@@ -357,202 +303,103 @@ img {
 }
 
 .card {
-    background: var(--white);
+    background-color: var(--bg-main);
     padding: 40px 30px;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius);
     box-shadow: var(--shadow-sm);
-    transition: transform var(--transition), box-shadow var(--transition);
-    position: relative;
-    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid rgba(231, 206, 206, 0.3); /* Borda sutil primary */
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
 }
 
 .card-icon {
     font-size: 2.5rem;
+    color: var(--text-main);
     margin-bottom: 20px;
+    background-color: var(--primary);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 }
 
 .card h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin-bottom: 15px;
 }
 
-.card p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-}
-
-/* Card Destaque */
+/* Card Destaque (Laser) ocupa 2 colunas */
 .card-destaque {
-    grid-column: 1 / -1;
+    grid-column: span 2;
     display: flex;
-    align-items: center;
     padding: 0;
-    background: linear-gradient(135deg, var(--primary-soft) 0%, #fdfbf9 100%);
-    border: 1px solid var(--secondary-color);
+    overflow: hidden;
+    position: relative;
 }
 
 .card-badge {
     position: absolute;
     top: 20px;
     left: 20px;
-    background: var(--accent-color);
-    color: var(--text-dark);
-    padding: 6px 16px;
+    background-color: var(--text-main);
+    color: var(--primary);
+    padding: 5px 15px;
     border-radius: 30px;
     font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    z-index: 2;
 }
 
-.card-destaque .card-content {
+.card-content {
+    padding: 40px;
     flex: 1;
-    padding: 60px;
-}
-
-.card-destaque h3 {
-    font-size: 2.2rem;
-    margin-top: 20px;
-}
-
-.destaque-text {
-    font-size: 1.1rem !important;
-    font-style: italic;
-    margin-bottom: 20px;
-}
-
-.beneficios-list { margin-bottom: 30px; }
-
-.beneficios-list li {
-    color: var(--text-light);
-    margin-bottom: 10px;
-    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .card-img-destaque {
     flex: 1;
-    background-size: cover;
-    background-position: center;
 }
 
-/* ==========================================================
-   Diferenciais
-   ========================================================== */
-.diferenciais-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+.card-img-destaque img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.diferencial-item { text-align: center; }
+.beneficios-list {
+    margin: 20px 0 30px;
+}
 
-.icon-circle {
-    width: 80px;
-    height: 80px;
-    background: var(--bg-light);
-    border-radius: 50%;
+.beneficios-list li {
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 2rem;
-    box-shadow: var(--shadow-sm);
-    color: var(--primary-color);
-    transition: transform var(--transition), background-color var(--transition), color var(--transition);
+    gap: 10px;
+    color: var(--text-main);
 }
 
-.diferencial-item:hover .icon-circle {
-    background: var(--primary-color);
-    color: var(--white);
-    transform: scale(1.1);
-}
-
-.diferencial-item h4 {
-    margin-bottom: 10px;
+.beneficios-list i {
+    color: var(--primary);
     font-size: 1.2rem;
 }
 
-.diferencial-item p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-}
-
 /* ==========================================================
-   Equipe
-   ========================================================== */
-
-.equipe section-padding bg-light {
-    background: #727374;
-    color: #FFFFFF;
-}
-
-.equipe-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.team-card {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    text-align: center;
-    transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.team-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-md);
-}
-
-
-
-.team-info { 
-    background: #727374;
-    padding: 30px;
-}
-.team-info h3 { font-size: 1.5rem; margin-bottom: 5px; margin-top: 10px; }
-.team-name {
-    color: var(--primary-soft)
-}
-
-.team-info .role {
-    display: block;
-    color: var(--primary-color);
-    font-weight: 500;
-    margin-top: 5px;
-    margin-bottom: 25px;
-    font-size: 0.9rem;
-}
-
-.role {
-    background: var(--primary-soft);
-    padding: 5px 15px;
-    border-radius: 20px;
-}
-
-.team-info p {
-    background: #000;
-    color: var(--text-light);
-    font-size: 0.95rem;
-}
-
-/* ==========================================================
-   Como Funciona (Linha do Tempo)
+   JORNADA (Timeline)
    ========================================================== */
 .timeline {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 40px;
     position: relative;
+    margin-top: 50px;
 }
 
 .timeline::before {
@@ -562,118 +409,42 @@ img {
     left: 10%;
     right: 10%;
     height: 2px;
-    background: var(--secondary-color);
-    z-index: 1;
+    background-color: var(--primary);
+    z-index: 0;
 }
 
 .timeline-step {
     text-align: center;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 .step-number {
     width: 60px;
     height: 60px;
-    background: var(--white);
-    border: 2px solid var(--primary-color);
+    background-color: var(--text-main);
+    color: var(--primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
     font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
     font-family: var(--font-heading);
-    box-shadow: var(--shadow-sm);
-}
-
-.timeline-step h4 { margin-bottom: 10px; }
-.timeline-step p { color: var(--text-light); font-size: 0.9rem; }
-
-/* ==========================================================
-   Cidades & Depoimentos
-   ========================================================== */
-.duo-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-}
-
-.tags-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 30px;
-}
-
-.tag-cidade {
-    background: var(--white);
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    box-shadow: var(--shadow-sm);
-    color: var(--text-dark);
-    border: 1px solid rgba(212, 163, 115, 0.2);
-}
-
-.depoimento-card {
-    background: var(--white);
-    padding: 25px;
-    border-radius: var(--radius-md);
-    margin-bottom: 20px;
-    box-shadow: var(--shadow-sm);
-}
-
-.stars {
-    color: #FFD700;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-}
-
-.depoimento-card p {
-    font-style: italic;
-    color: var(--text-light);
-    margin-bottom: 15px;
-    font-size: 0.95rem;
-}
-
-.depoimento-card span {
-    font-weight: 600;
-    color: var(--text-dark);
+    margin: 0 auto 20px;
+    border: 5px solid var(--bg-main);
 }
 
 /* ==========================================================
-   CTA Final
-   ========================================================== */
-.cta-final {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, #F5E6E0 100%);
-    border-radius: var(--radius-lg);
-    margin: 0 20px 100px 20px;
-    padding: 60px 40px; /* Adicionado padding para estruturar melhor o conteúdo interno */
-}
-
-.cta-final h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.cta-final p {
-    font-size: 1.1rem;
-    color: var(--text-dark);
-    max-width: 600px;
-    margin: 0 auto 30px auto; /* Adicionada margem inferior para separar do botão */
-}
-
-/* ==========================================================
-   Rodapé
+   FOOTER & TAGS
    ========================================================== */
 .footer {
-    background: var(--primary-soft); /* Correção do erro var(#e7cece) */
-    padding-top: 80px;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    background-color: var(--text-main);
+    color: var(--bg-main);
+    padding: 80px 0 20px;
+}
+
+.footer h3, .footer h4 {
+    color: var(--primary);
 }
 
 .footer-grid {
@@ -683,82 +454,78 @@ img {
     margin-bottom: 60px;
 }
 
-.footer-brand h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.footer-brand span { color: var(--primary-color); }
-.footer-brand p { color: var(--text-dark); max-width: 300px; }
-
-.footer h4 {
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-}
-
-.footer p, .footer li {
-    color: var(--text-dark);
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 10px;
-    font-size: 0.95rem;
+    color: var(--text-secondary);
 }
 
-.footer a:hover { color: var(--primary-color); }
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-cidade {
+    background-color: rgba(231, 206, 206, 0.1);
+    color: var(--primary);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    border: 1px solid var(--primary);
+}
 
 .footer-bottom {
-    background: var(--bg-light);
-    padding: 20px 0;
     text-align: center;
-    border-top: 1px solid rgba(0,0,0,0.05);
-}
-
-.footer-bottom p {
-    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
     font-size: 0.85rem;
+    color: var(--text-secondary);
 }
 
 /* ==========================================================
-   Botões Flutuantes (WhatsApp e Topo)
+   WHATSAPP & BACK TO TOP
    ========================================================== */
 .fab-whatsapp {
     position: fixed;
     bottom: 30px;
-    left: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
     width: 60px;
     height: 60px;
-    background-color: var(--whatsapp-color); /* Usando variável nova */
-    color: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    font-size: 2rem;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
     z-index: 1000;
-    transition: transform var(--transition), box-shadow var(--transition);
+    animation: pulse 2s infinite;
 }
 
-.fab-whatsapp svg { width: 35px; height: 35px; }
-
-.fab-whatsapp:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
 .back-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: var(--primary-color);
-    color: var(--white);
-    border: none;
+    bottom: 100px;
+    right: 40px;
+    background-color: var(--primary);
+    color: var(--text-main);
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    font-size: 1.5rem;
+    border: none;
     cursor: pointer;
-    box-shadow: var(--shadow-md);
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--transition), visibility var(--transition), transform var(--transition), background-color var(--transition);
+    transition: var(--transition);
     z-index: 999;
 }
 
@@ -767,85 +534,45 @@ img {
     visibility: visible;
 }
 
-.back-to-top:hover {
-    background: var(--primary-dark);
-    transform: translateY(-5px);
-}
-
 /* ==========================================================
-   Animações de Scroll (Fade In)
+   CLASSES DE ANIMAÇÃO (Scroll Reveal via JS)
    ========================================================== */
-.fade-in {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    will-change: opacity, transform;
-}
-
-.fade-in.visible {
+.reveal-up { opacity: 0; transform: translateY(40px); transition: 0.8s all ease; }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: 0.8s all ease; }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: 0.8s all ease; }
+.active.reveal-up, .active.reveal-left, .active.reveal-right {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(0, 0);
 }
 
 /* ==========================================================
-   Media Queries (Responsividade)
+   RESPONSIVO (Mobile)
    ========================================================== */
-@media (max-width: 1024px) {
+@media (max-width: 992px) {
+    .sobre-container { grid-template-columns: 1fr; }
+    .servicos-grid { grid-template-columns: 1fr 1fr; }
+    .card-destaque { grid-column: span 2; flex-direction: column; }
+    .footer-grid { grid-template-columns: 1fr; }
     .hero-content h1 { font-size: 2.8rem; }
-    .servicos-grid { grid-template-columns: repeat(2, 1fr); }
-    .card-destaque { flex-direction: column; }
-    .card-img-destaque { width: 100%; min-height: 300px; }
-    .timeline::before { display: none; }
-    .timeline { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-    .duo-layout { gap: 30px; }
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: -100%;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 0;
-        box-shadow: var(--shadow-sm);
-        transition: left 0.4s ease-in-out;
-    }
-    
-    .nav-links.active { left: 0; }
-    .btn-nav { display: none; }
     .menu-toggle { display: flex; }
-
-    .hero-content h1 { font-size: 2.2rem; }
-    .sobre-container { flex-direction: column; }
-    .sobre-stats { flex-direction: column; gap: 20px; text-align: center; }
-    
-    .servicos-grid, 
-    .diferenciais-grid, 
-    .equipe-grid, 
-    .timeline, 
-    .duo-layout, 
-    .footer-grid { 
-        grid-template-columns: 1fr; 
+    .nav-menu {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 80%; height: 100vh;
+        background-color: var(--bg-main);
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.4s ease-in-out;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.1);
     }
-    
-    .footer-grid { text-align: center; }
-    .footer-brand p { margin: 0 auto; }
-    
-    .card-destaque .card-content { padding: 30px 20px; }
-    
-    .cta-final { margin: 0 10px 80px 10px; padding: 60px 20px; }
-    .cta-final h2 { font-size: 2rem; }
-}
-
-/* Imagem fazendo depilação a laser */
-.imagem-depilacao-laser {
-    width: 100%;
-    height: auto;
-    margin-left: 5rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    margin-bottom: 20px;
+    .nav-menu.active { right: 0; }
+    .nav-links { flex-direction: column; text-align: center; gap: 20px; }
+    .servicos-grid { grid-template-columns: 1fr; }
+    .card-destaque { grid-column: span 1; }
+    .timeline { grid-template-columns: 1fr; gap: 30px; }
+    .timeline::before { display: none; }
+    .hero-content h1 { font-size: 2.2rem; }
 }
