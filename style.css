@@ -1504,13 +1504,13 @@ button:focus-visible {
 .avaliacoes > .container {
     display: contents;
 }
-
 @media (min-width: 900px) {
     .duo-layout {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Divide em duas colunas */
-        gap: 20px 60px; /* 20px de espaço entre as linhas, 60px entre as colunas */
-        align-items: start; /* Evita que os itens estiquem verticalmente de forma irregular */
+        /* Mudamos de 1fr 1fr para 1fr 1.6fr para dar muito mais espaço horizontal ao formulário */
+        grid-template-columns: 1fr 1.6fr; 
+        gap: 20px 40px; /* Ajuste leve no espaço entre as colunas */
+        align-items: start; 
     }
 
     /* 1. Lugares onde atendemos (Esquerda, Topo) */
@@ -1530,30 +1530,31 @@ button:focus-visible {
     .avaliacoes-lista-wrapper {
         grid-column: 1;
         grid-row: 2;
-        margin-top: 60px; /* Dá um leve respiro em relação à área das cidades acima */
+        margin-top: 60px; 
     }
 
     /* 4. Formulário (Direita, Embaixo do título) */
     .avaliacao-form-box {
         grid-column: 2;
         grid-row: 2;
-        margin: 0; /* Remove a margem automática que forçava a centralização */
+        margin: 0; 
         width: 100%;
     }
 
-    /* Ajuste para evitar que os cards de depoimento fiquem muito espremidos ao dividir a tela */
+    /* Garante que os comentários fiquem em uma coluna única bem elegante na barra lateral */
     .lista-comentarios {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr !important; 
     }
 }
 
 /* --- Responsivo --- */
 @media (min-width: 600px) {
     .avaliacao-form-box { padding: 44px 40px; }
-    .lista-comentarios { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 900px) {
-    .avaliacao-form-box { padding: 52px 56px; }
-    .lista-comentarios { grid-template-columns: repeat(3, 1fr); }
+    .avaliacao-form-box { 
+        /* Mantemos o respiro vertical e reduzimos o horizontal para os campos ganharem tamanho */
+        padding: 52px 32px; 
+    }
 }
