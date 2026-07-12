@@ -1129,8 +1129,431 @@ button:focus-visible {
     .cta-final { margin: 0 40px; padding: 80px 40px; }
 }
 
+/* ==========================================================
+   Avaliações e Comentários
+   ========================================================== */
+
+/* --- Bloco do formulário --- */
+.avaliacao-form-box {
+    max-width: 640px;
+    margin: 0 auto 64px;
+    background: var(--paper);
+    padding: 36px 26px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.avaliacao-form-box h3 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.avaliacao-form-box > p {
+    color: var(--slate);
+    text-align: center;
+    font-size: 0.95rem;
+    max-width: 440px;
+    margin: 0 auto 32px;
+}
+
+/* --- Campos --- */
+.form-group { margin-bottom: 22px; }
+.form-group:last-of-type { margin-bottom: 28px; }
+
+.form-avaliacao label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--ink);
+    margin-bottom: 9px;
+}
+
+.form-avaliacao input,
+.form-avaliacao select,
+.form-avaliacao textarea {
+    display: block;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1.5px solid rgba(0, 0, 0, 0.13);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+.form-avaliacao textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.form-avaliacao ::placeholder { color: var(--slate); opacity: 0.85; }
+
+.form-avaliacao input:focus,
+.form-avaliacao select:focus,
+.form-avaliacao textarea:focus {
+    outline: none;
+    border-color: var(--ink);
+    box-shadow: 0 0 0 4px rgba(231, 206, 206, 0.4);
+}
+
+.form-avaliacao select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23000000' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 13px;
+    padding-right: 46px;
+}
+
+/* Estrelas do formulário: cor "placeholder" até o cliente escolher uma nota */
+.form-avaliacao select:invalid { color: var(--slate); }
+.form-avaliacao select:valid { color: var(--ink); }
+
+.form-avaliacao .btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+/* --- Grade de avaliações (preenchida via Firebase) --- */
+.avaliacoes-lista-wrapper h3 { margin-bottom: 36px; }
+
+.lista-comentarios {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 26px;
+}
+
+/* Estado vazio: exibido enquanto carrega e caso não haja avaliações ainda */
+.lista-comentarios:empty::before {
+    content: 'Nenhuma avaliação por aqui ainda — seja a primeira pessoa a compartilhar a sua experiência!';
+    display: block;
+    grid-column: 1 / -1;
+    text-align: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--slate);
+    font-size: 1.05rem;
+    padding: 30px 20px;
+}
+
+.comentario-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--paper);
+    padding: 32px 28px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    color: var(--slate);
+    font-size: 0.92rem;
+    transition: transform var(--ease), box-shadow var(--ease);
+}
+
+.comentario-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.comentario-item::before {
+    content: '\201C';
+    position: absolute;
+    top: 4px;
+    right: 22px;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--blush-pale);
+    z-index: 0;
+}
+
+.comentario-item strong {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+}
+
+.comentario-item p {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin-top: 12px;
+}
+
+/* --- Responsivo --- */
+@media (min-width: 600px) {
+    .avaliacao-form-box { padding: 44px 40px; }
+    .lista-comentarios { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+    .avaliacao-form-box { padding: 52px 56px; }
+    .lista-comentarios { grid-template-columns: repeat(3, 1fr); }
+}
+
 /* Desktop grande, 1200px+ */
 @media (min-width: 1200px) {
     .section-padding { padding: 120px 0; }
     .card-destaque .card-content { padding: 70px 60px; }
+}
+
+/* ==========================================================
+   Avaliações e Comentários
+   ========================================================== */
+
+/* --- Bloco do formulário --- */
+.avaliacao-form-box {
+    max-width: 640px;
+    margin: 0 auto 64px;
+    background: var(--paper);
+    padding: 36px 26px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.avaliacao-form-box h3 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.avaliacao-form-box > p {
+    color: var(--slate);
+    text-align: center;
+    font-size: 0.95rem;
+    max-width: 440px;
+    margin: 0 auto 32px;
+}
+
+/* --- Campos --- */
+.form-group { margin-bottom: 22px; }
+.form-group:last-of-type { margin-bottom: 28px; }
+
+.form-avaliacao label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--ink);
+    margin-bottom: 9px;
+}
+
+.form-avaliacao input,
+.form-avaliacao select,
+.form-avaliacao textarea {
+    display: block;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1.5px solid rgba(0, 0, 0, 0.13);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+.form-avaliacao textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.form-avaliacao ::placeholder { color: var(--slate); opacity: 0.85; }
+
+.form-avaliacao input:focus,
+.form-avaliacao select:focus,
+.form-avaliacao textarea:focus {
+    outline: none;
+    border-color: var(--ink);
+    box-shadow: 0 0 0 4px rgba(231, 206, 206, 0.4);
+}
+
+.form-avaliacao select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23000000' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 13px;
+    padding-right: 46px;
+}
+
+/* Estrelas do formulário: cor "placeholder" até o cliente escolher uma nota */
+.form-avaliacao select:invalid { color: var(--slate); }
+.form-avaliacao select:valid { color: var(--ink); }
+
+.form-avaliacao .btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+/* --- Grade de avaliações (preenchida via Firebase) --- */
+.avaliacoes-lista-wrapper h3 { margin-bottom: 36px; }
+
+.lista-comentarios {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 26px;
+}
+
+/* Estado vazio: exibido enquanto carrega e caso não haja avaliações ainda */
+.lista-comentarios:empty::before {
+    content: 'Nenhuma avaliação por aqui ainda — seja a primeira pessoa a compartilhar a sua experiência!';
+    display: block;
+    grid-column: 1 / -1;
+    text-align: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--slate);
+    font-size: 1.05rem;
+    padding: 30px 20px;
+}
+
+.comentario-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--paper);
+    padding: 32px 28px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    color: var(--slate);
+    font-size: 0.92rem;
+    transition: transform var(--ease), box-shadow var(--ease);
+}
+
+.comentario-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.comentario-item::before {
+    content: '\201C';
+    position: absolute;
+    top: 4px;
+    right: 22px;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--blush-pale);
+    z-index: 0;
+}
+
+.comentario-item strong {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+}
+
+.comentario-item p {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin-top: 12px;
+}
+
+/* Adicione no style.css caso não tenha */
+.fade-in {
+    opacity: 0; /* Volte para 0 */
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================
+   NOVO AJUSTE: CIDADES E AVALIAÇÕES (DUO-LAYOUT)
+   ========================================================== */
+
+/* "Remove" as caixas estruturais extras do fluxo visual para manipularmos os itens diretamente no Grid */
+.avaliacoes,
+.avaliacoes > .container {
+    display: contents;
+}
+
+@media (min-width: 900px) {
+    .duo-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Divide em duas colunas */
+        gap: 20px 60px; /* 20px de espaço entre as linhas, 60px entre as colunas */
+        align-items: start; /* Evita que os itens estiquem verticalmente de forma irregular */
+    }
+
+    /* 1. Lugares onde atendemos (Esquerda, Topo) */
+    .cidades-box {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    /* 2. Título de Avaliações (Direita, Topo) */
+    .avaliacoes .section-header {
+        grid-column: 2;
+        grid-row: 1;
+        margin-bottom: 20px;
+    }
+
+    /* 3. O Que Estão Dizendo (Esquerda, Embaixo das cidades) */
+    .avaliacoes-lista-wrapper {
+        grid-column: 1;
+        grid-row: 2;
+        margin-top: 60px; /* Dá um leve respiro em relação à área das cidades acima */
+    }
+
+    /* 4. Formulário (Direita, Embaixo do título) */
+    .avaliacao-form-box {
+        grid-column: 2;
+        grid-row: 2;
+        margin: 0; /* Remove a margem automática que forçava a centralização */
+        width: 100%;
+    }
+
+    /* Ajuste para evitar que os cards de depoimento fiquem muito espremidos ao dividir a tela */
+    .lista-comentarios {
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* --- Responsivo --- */
+@media (min-width: 600px) {
+    .avaliacao-form-box { padding: 44px 40px; }
+    .lista-comentarios { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+    .avaliacao-form-box { padding: 52px 56px; }
+    .lista-comentarios { grid-template-columns: repeat(3, 1fr); }
 }

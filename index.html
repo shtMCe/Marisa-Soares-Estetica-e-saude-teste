@@ -268,16 +268,57 @@
                         </div>
                     </div>
 
-                    <div class="depoimentos-box fade-in">
-                        <span class="section-subtitle">Voz das Clientes</span>
-                        <h2 class="section-title text-left">Histórias de transformação real</h2>
-                        <div class="depoimento-card depoimento-destaque">
-                            <i class="ph ph-quotes quote-icon" aria-hidden="true"></i>
-                            <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
-                            <p>"Uma experiência simplesmente impecável do início ao fim. O acolhimento é único, a equipe domina o que faz e os resultados entregues superaram todas as minhas expectativas. É o padrão de excelência que eu sempre busquei."</p>
-                            <span>— Phablo Oliveira</span>
-                        </div>
-                    </div>
+                    <section class="avaliacoes section-padding" id="avaliacoes">
+    <div class="container">
+
+        <div class="section-header text-center fade-in">
+            <span class="section-subtitle">Avaliações &amp; Comentários</span>
+            <h2 class="section-title">Compartilhe a Sua Experiência</h2>
+        </div>
+
+        <div class="avaliacao-form-box fade-in">
+            <h3>Deixe a Sua Avaliação</h3>
+            <p>Sua opinião ajuda outras pessoas a conhecerem o nosso cuidado. Conte como foi o seu atendimento.</p>
+
+            <form id="form-avaliacao" class="form-avaliacao">
+                <div class="form-group">
+                    <label for="nome-cliente">Nome</label>
+                    <input type="text" id="nome-cliente" name="nome-cliente" placeholder="Seu nome completo" autocomplete="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="qtd-estrelas">Sua Nota</label>
+                    <select id="qtd-estrelas" name="qtd-estrelas" required>
+                        <option value="" disabled selected>Selecione de 1 a 5 estrelas</option>
+                        <option value="5">★★★★★ &nbsp;Excelente</option>
+                        <option value="4">★★★★☆ &nbsp;Muito bom</option>
+                        <option value="3">★★★☆☆ &nbsp;Bom</option>
+                        <option value="2">★★☆☆☆ &nbsp;Regular</option>
+                        <option value="1">★☆☆☆☆ &nbsp;Ruim</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="texto-comentario">Comentário</label>
+                    <textarea id="texto-comentario" name="texto-comentario" rows="4" placeholder="Conte como foi a sua experiência na clínica..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="ph ph-paper-plane-tilt" aria-hidden="true"></i> Enviar Avaliação
+                </button>
+            </form>
+        </div>
+
+        <div class="avaliacoes-lista-wrapper fade-in">
+            <h3 class="text-center">O Que Estão Dizendo</h3>
+            <div id="lista-comentarios" class="lista-comentarios">
+                <!-- Preenchido dinamicamente via JavaScript (Firebase) -->
+            </div>
+        </div>
+
+    </div>
+</section>
+
                 </div>
             </div>
         </section>
@@ -331,9 +372,8 @@
         <i class="ph ph-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script src="script.js"></script>
-
-    <script type="module" src="seu-arquivo.js"></script>
+    <!-- Verifique se o seu HTML está assim, com type="module" -->
+    <script type="module" src="script.js"></script>
 
 </body>
 </html>
