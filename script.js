@@ -95,3 +95,74 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+
+ /* ==========================================================
+    5. Formulário de Avaliações com Firebase Firestore
+    ========================================================== */
+
+// Importações necessárias
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "firebase/firestore";
+
+// Sua configuração (já está correta)
+const firebaseConfig = {
+  apiKey: "AIzaSyAdtCsbQBPuWl18dah-7Jyhaffu5EWKUL0",
+  authDomain: "site-marisa-soares.firebaseapp.com",
+  projectId: "site-marisa-soares",
+  storageBucket: "site-marisa-soares.firebasestorage.app",
+  messagingSenderId: "72895220809",
+  appId: "1:72895220809:web:26d97afd2cf37aa7c48398",
+  measurementId: "G-FEFVN44Y52"
+};
+
+// Inicializa o Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app); // Aqui estamos inicializando o Banco de Dados
+
+// Referência à coleção de comentários
+const comentariosRef = collection(db, "avaliacoes");
+
+// --- FUNÇÕES DE ENVIO E LEITURA ---
+
+// 1. Função para carregar comentários quando o site abrir
+async function carregarComentarios() {
+  const listaHtml = document.getElementById('lista-comentarios');
+  if(!listaHtml) return;
+  
+  listaHtml.innerHTML = "Carregando...";
+  
+  const q = query(comentariosRef, orderBy("data", "desc"));
+  const querySnapshot = await getDocs(q);
+  
+  listaHtml.innerHTML = ""; // Limpa o "Carregando..."
+  
+  querySnapshot.forEach((doc) => {
+    const d = doc.data();
+    const div = document.createElement('div');
+    div.className = 'comentario-item';
+    div.innerHTML = `<strong>${d.nome}</strong> (${d.estrelas}⭐)<p>${d.texto}</p>`;
+    listaHtml.appendChild(div);
+  });
+}
+
+// 2. Evento para salvar o comentário
+const form = document.getElementById('form-avaliacao');
+if(form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    await addDoc(comentariosRef, {
+      nome: document.getElementById('nome-cliente').value,
+      estrelas: document.getElementById('qtd-estrelas').value,
+      texto: document.getElementById('texto-comentario').value,
+      data: new Date()
+    });
+    
+    form.reset();
+    carregarComentarios(); // Atualiza a lista na tela
+  });
+}
+
+// Inicia ao carregar a página
+carregarComentarios();
