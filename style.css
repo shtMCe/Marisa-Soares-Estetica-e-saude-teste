@@ -1500,10 +1500,12 @@ button:focus-visible {
    ========================================================== */
 
 /* "Remove" as caixas estruturais extras do fluxo visual para manipularmos os itens diretamente no Grid */
+
 .avaliacoes,
 .avaliacoes > .container {
     display: contents;
 }
+
 @media (min-width: 900px) {
     .duo-layout {
         display: grid;
